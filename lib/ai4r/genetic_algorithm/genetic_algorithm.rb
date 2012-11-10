@@ -177,7 +177,8 @@ module Ai4r
         return @fitness if @fitness
         last_token = @data[0]
         cost = 0
-        @data[1..-1].each do |token|
+        dupl = @data.dup.push(@data[0])
+        dupl[1..-1].each do |token|
           cost += @@costs[last_token][token]
           last_token = token
         end
